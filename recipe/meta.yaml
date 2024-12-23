@@ -1,5 +1,5 @@
 {% set name = "augurs" %}
-{% set version = "0.4.0" %}
+{% set version = "0.8.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/augurs-{{ version }}.tar.gz
-  sha256: fc86a74950c55372f98e07825a48715133fd8b97f9846cd5a7bba6525946acf1
+  sha256: 20eb71119e34ae34ec8b4b34d52f73595184500a62fdfb1e1bd9901748ee5814
 
 build:
-  skip: True  # [py<37]
+  skip: true  # [py<37]
   script:
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
     - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   build:
