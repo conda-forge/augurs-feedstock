@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/augurs-{{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/augurs-{{ version }}.tar.gz
   sha256: 20eb71119e34ae34ec8b4b34d52f73595184500a62fdfb1e1bd9901748ee5814
 
 build:
@@ -16,7 +16,7 @@ build:
     - export PYO3_USE_ABI3_FORWARD_COMPATIBILITY=1  # [unix]
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
     - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 2
 
 requirements:
   build:
