@@ -1,5 +1,5 @@
 {% set name = "augurs" %}
-{% set version = "0.8.0" %}
+{% set version = "0.10.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/augurs-{{ version }}.tar.gz
-  sha256: 20eb71119e34ae34ec8b4b34d52f73595184500a62fdfb1e1bd9901748ee5814
+  sha256: 4576ff971fbe3e8eb7e1a850b5c3440394ddabb277140f07f39d259a3f8fdac0
 
 build:
   skip: true  # [py<37]
@@ -16,7 +16,7 @@ build:
     - export PYO3_USE_ABI3_FORWARD_COMPATIBILITY=1  # [unix]
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
     - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 2
+  number: 0
 
 requirements:
   build:
